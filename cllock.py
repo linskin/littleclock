@@ -7,9 +7,24 @@ import time
 
 class ClockWindow(tk.Tk):
     def update_time(self):
-        current_time = time.strftime('%H:%M:%S')
+
+        # 获取当前时间的Unix时间戳（精确到秒），再转换成毫秒
+        timestamp_ms = int(time.time() * 1000)
+        # 格式化输出当前时间（不含微秒精度，通常不直接展示）
+        local_time = time.localtime(timestamp_ms / 1000)
+
+        formatted_time = time.strftime("%H:%M:%S", local_time)
+
+        # current_time = f"{formatted_time}:{(timestamp_ms % 1000) // 10 :02d}"
+        current_time = f"{formatted_time}"
+
         self.time_label.config(text=current_time)
+        # self.time_label.after(10, self.update_time)
         self.time_label.after(1000, self.update_time)
+
+
+    # def mytimer(self, event):
+
 
     def StartMove(self, event):
         global x, y
@@ -32,11 +47,6 @@ class ClockWindow(tk.Tk):
     def myquit(self, *args):
         self.destroy()
 
-    def mytimer(self, event):
-        current_time = time.strftime("%Y-%m-%d%H:%M:%S")
-        self.time_label.config(text=current_time)
-        # self.time_label.after(1000, self.update_time)
-
     def __init__(self):
         super().__init__()
         self.overrideredirect(1)  # 去除窗口边框
@@ -44,8 +54,8 @@ class ClockWindow(tk.Tk):
         self.wm_attributes("-topmost", True)  # 始终处于顶层
         self.title('个性化时钟')
         self.geometry('400x133')
-        self.configure(bg='black')
-        self.time_label = tk.Label(self, text='', font=('Arial', 66), fg='white', bg='black')
+        self.configure(bg='white')
+        self.time_label = tk.Label(self, text='', font=('Arial', 66), fg='black', bg='white')
         self.time_label.pack(expand=True)
 
         self.update_time()
@@ -53,20 +63,10 @@ class ClockWindow(tk.Tk):
         self.bind("<ButtonRelease-1>", self.StopMove)  # 监听左键松开操作响应函数
         self.bind("<B1-Motion>", self.OnMotion)  # 监听鼠标移动操作响应函数
         self.bind("<Control-q>", self.myquit)  # 关闭
-        self.bind("<Control-t>", self.mytimer)  # 切换为倒计时
+        # self.bind("<Control-t>", self.mytimer)  # 切换为倒计时
 
 
 if __name__ == "__main__":
     app = ClockWindow()
     app.mainloop()
 
-    # def start_timer(self):
-    #     if self.current_window == "timer":
-    #         self.timer_start_time = time.time()
-    #         self.update_timer()
-    #
-    # def update_timer(self):
-    #     if self.current_window == "timer":
-    #         elapsed_time = int(time.time() - self.timer_start_time)
-    #         self.label.config(text=f"计时器: {elapsed_time} 秒")
-    #         self.root.after(1000, self.update_timer)
