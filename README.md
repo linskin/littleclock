@@ -2,19 +2,20 @@
 
 直接运行dist文件夹下的main.exe即可
 
-![image-20240426170937446](G:\JetBrains\jetBrain_WorkSpeace\PychamProjects\clock\README\image-20240426170937446.png)
+![image-20240426170937446](https://github.com/linskin/littleclock/assets/110439527/682e42cd-6502-49c1-b7d4-1be0445ee2f3)
+
 
 ## 程序功能
 
-![image-20240426164916784](G:\JetBrains\jetBrain_WorkSpeace\PychamProjects\clock\README\image-20240426164916784.png)
+![image-20240426164945004](https://github.com/linskin/littleclock/assets/110439527/c0600003-e4e7-4cac-b530-593948078faa)
 
 ### Ctrl+T切换至计时功能
 
-![image-20240426164929932](G:\JetBrains\jetBrain_WorkSpeace\PychamProjects\clock\README\image-20240426164929932.png)
+![image-20240426164929932](https://github.com/linskin/littleclock/assets/110439527/00579085-0ae0-4cb1-b9f3-9bca1bdb767f)
 
 ### Ctrl+S暂停 
 
-![image-20240426164945004](G:\JetBrains\jetBrain_WorkSpeace\PychamProjects\clock\README\image-20240426164945004.png)
+![image](https://github.com/linskin/littleclock/assets/110439527/f9a76ec1-f6b3-4cc6-98e1-05de479dbb8c)
 
 ### Ctrl+Q关闭
 
