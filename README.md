@@ -7,7 +7,7 @@
 
 ## 程序功能
 
-![image-20240426164945004](https://github.com/linskin/littleclock/assets/110439527/c0600003-e4e7-4cac-b530-593948078faa)
+![image](https://github.com/linskin/littleclock/assets/110439527/f9a76ec1-f6b3-4cc6-98e1-05de479dbb8c)
 
 ### Ctrl+T切换至计时功能
 
@@ -15,7 +15,7 @@
 
 ### Ctrl+S暂停 
 
-![image](https://github.com/linskin/littleclock/assets/110439527/f9a76ec1-f6b3-4cc6-98e1-05de479dbb8c)
+![image-20240426164945004](https://github.com/linskin/littleclock/assets/110439527/c0600003-e4e7-4cac-b530-593948078faa)
 
 ### Ctrl+Q关闭
 
