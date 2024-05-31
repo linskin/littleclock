@@ -2,7 +2,6 @@ import tkinter as tk
 import time
 from datetime import datetime
 
-
 class ClockWindow(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -19,6 +18,7 @@ class ClockWindow(tk.Tk):
         self.timer_running = False  # 计时器状态
         self.timer_start_time = 0  # 计时器开始时间
         self.paused_time = 0  # 暂停时的时间
+        self.x = self.y = 0  # 初始化鼠标位置
         self.bind("<ButtonPress-1>", self.StartMove)  # 监听左键按下操作响应函数
         self.bind("<ButtonRelease-1>", self.StopMove)  # 监听左键松开操作响应函数
         self.bind("<B1-Motion>", self.OnMotion)  # 监听鼠标移动操作响应函数
@@ -57,7 +57,7 @@ class ClockWindow(tk.Tk):
         for event, date in self.target_dates.items():
             days_left = (date - today).days + 1
             if days_left > 0:
-                countdown_texts.append(f"距离{event}  还有 {days_left} 天")
+                countdown_texts.append(f"距离{event} 还有 {days_left} 天")
             elif days_left == 0:
                 countdown_texts.append(f"{event} 今天进行")
             else:
@@ -79,35 +79,31 @@ class ClockWindow(tk.Tk):
     def toggle_timer(self, event):
         if self.timer_running:
             self.paused_time = int(time.time() * 1000)
-        self.timer_running = not self.timer_running
-        if self.timer_running:
+            self.timer_running = False
+        else:
             if self.paused_time != 0:
                 self.timer_start_time += int(time.time() * 1000) - self.paused_time
                 self.paused_time = 0
             else:
                 self.timer_start_time = int(time.time() * 1000)
+            self.timer_running = True
         self.update_time()
 
     def StartMove(self, event):
-        global x, y
-        x = event.x
-        y = event.y
+        self.x = event.x
+        self.y = event.y
 
     def StopMove(self, event):
-        global x, y
-        x = None
-        y = None
+        self.x = None
+        self.y = None
 
     def OnMotion(self, event):
-        global x, y
-        deltax = event.x - x
-        deltay = event.y - y
+        deltax = event.x - self.x
+        deltay = event.y - self.y
         self.geometry("+%s+%s" % (self.winfo_x() + deltax, self.winfo_y() + deltay))
-        self.update()
 
     def myquit(self, *args):
         self.destroy()
-
 
 app = ClockWindow()
 app.mainloop()
