@@ -1,3 +1,8 @@
+## 3.0新增
+![img.png](img.png)
+
+迷你小时钟，适合coding时使用
+
 ## 2.0新增
 ![image](https://github.com/linskin/littleclock/assets/110439527/b49c61b7-e5ae-48c1-accd-16e533b2bf86)
 ### 如何自定义
