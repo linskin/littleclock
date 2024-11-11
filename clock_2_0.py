@@ -28,9 +28,9 @@ class ClockWindow(tk.Tk):
 
         # 定义目标日期
         self.target_dates = {
-            "预报名开始": datetime(2024, 9, 24),
-            "正式报名开始": datetime(2024, 10, 8),
-            "初试开始": datetime(2024, 12, 21),
+            "预报名": datetime(2024, 10, 9),
+            "正式报名": datetime(2024, 10, 15),
+            "初试开始": datetime(2024, 12, 20),
         }
 
     def update_time(self):
